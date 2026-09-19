@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gharpayy | Phone Verification Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <div class="brand">gharpayy<span>.</span></div>
+      <div class="icon">✓</div>
+      <h1>Verify your phone</h1>
+      <p class="subtitle">Enter your details to continue.</p>
+
+      <form id="phoneForm" novalidate>
+        <label for="name">Full name</label>
+        <input id="name" type="text" placeholder="Enter your full name" autocomplete="name" required />
+
+        <label for="phone">Phone number</label>
+        <div class="phone-row">
+          <span class="prefix">+91</span>
+          <input id="phone" type="tel" inputmode="numeric" maxlength="10"
+                 placeholder="10-digit mobile number" autocomplete="tel-national" required />
+        </div>
+
+        <button id="sendBtn" type="submit">Send OTP</button>
+      </form>
+
+      <section id="otpPanel" class="hidden">
+        <div class="sent-note">OTP sent to <strong id="maskedPhone"></strong></div>
+        <label for="otp">Enter 6-digit OTP</label>
+        <input id="otp" class="otp" type="text" inputmode="numeric" maxlength="6"
+               placeholder="000000" autocomplete="one-time-code" />
+        <button id="verifyBtn" type="button">Verify OTP</button>
+        <button id="resendBtn" class="secondary" type="button">Resend OTP</button>
+        <p class="demo-note">Demo mode: use OTP <strong>123456</strong>.</p>
+      </section>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+
+      <section id="successPanel" class="success hidden">
+        <div class="success-icon">✓</div>
+        <h2>Phone verified successfully!</h2>
+        <p id="welcome"></p>
+        <button id="resetBtn" class="secondary" type="button">Verify another number</button>
+      </section>
+
+      <p class="footer">Demo only · No real SMS is sent</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
